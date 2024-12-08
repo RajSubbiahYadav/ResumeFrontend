@@ -7,7 +7,7 @@ function WorkExperiencePreview({resumeInfo}) {
         style={{
             color:resumeInfo?.themeColor
         }}
-        >Work Experience</h2>
+        >Experience</h2>
         <hr style={{
             borderColor:resumeInfo?.themeColor
         }} />
@@ -23,7 +23,7 @@ function WorkExperiencePreview({resumeInfo}) {
                     {experience?.companyName}, 
                     {experience?.city}, 
                     {experience?.state}
-                <span>{experience?.startDate} To {experience?.currentlyWorking?'Present':experience.endDate} </span>
+                <span>{experience?.startDate} - {experience?.currentlyWorking?'Present':experience.endDate} </span>
                 </h2>
                 {/* <p className='text-xs my-2'>
                     {experience.workSummery}

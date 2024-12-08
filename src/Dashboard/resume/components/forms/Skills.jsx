@@ -21,6 +21,10 @@ function Skills() {
 
     const {resumeId}=useParams();
 
+    useEffect(()=>{
+        resumeInfo&&setSkillList(resumeInfo?.skills)
+      },[])
+
     const handleChange=(index,name,value)=>{
         const newEntries=skillList.slice();
         newEntries[index][name]=value;
@@ -42,7 +46,7 @@ function Skills() {
         setLoading(true);
         const data={
             data:{
-                skills:skillList
+                skills:skillList.map(({ id, ...rest }) => rest)
             }
         }
         

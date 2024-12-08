@@ -37,21 +37,6 @@ function Summery({ enableNext }) {
   //   setLoading(false);
   // }
 
-  // const GeneretiveSummeryFromAI = async () => {
-  //   setLoading(true);
-  //   const PROMPT = prompt.replace('{jobTitle}', resumeInfo?.jobTitle);
-  //   console.log(PROMPT);
-  //   console.log("This is LOGin");
-  //   console.log(apiKey,"This is api KEY"); 
-
-  //   try {
-  //     const AiChatSession = await initializeAiChatSession();
-  //     const result = await AiChatSession.sendMessage(PROMPT);
-  //     console.log(JSON.parse(result.response.text()));
-  //     setAiGeneratedSummeryList(JSON.parse(result.response.text()))
-
-  //   } 
-
   const onSave = (e) => {
     e.preventDefault();
 
@@ -97,8 +82,8 @@ function Summery({ enableNext }) {
           <Textarea
             className='mt-5'
             required
-            // value={summery}
-            // defaultValue={summery?summery:resumeInfo?.summery}
+            value={summery}
+             defaultValue={summery?summery:resumeInfo?.summery}
             onChange={(e) => setSummery(e.target.value)}
           />
 

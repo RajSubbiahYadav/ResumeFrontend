@@ -12,14 +12,14 @@ function EducationPreview({resumeInfo}) {
         borderColor:resumeInfo?.themeColor
     }} />
 
-    {resumeInfo?.education.map((education,index)=>(
+    {resumeInfo?.education?.map((education,index)=>(
         <div key={index} className='my-5'>
             <h2 className='text-sm font-bold'
                 style={{
                     color:resumeInfo?.themeColor
                 }}
             >{education.universityName}</h2>
-            <h2 className='text-xs flex justify-between'>{education?.degree} in {education?.major}
+            <h2 className='text-xs flex justify-between'>{education?.degree}, {education?.major}
             <span>{education?.startDate} - {education?.endDate}</span>
             </h2>
             <p className='text-xs my-2'>

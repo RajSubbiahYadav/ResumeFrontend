@@ -33,7 +33,7 @@ function Dashboard() {
           mt-10 gap-5'>
         <AddResume/>
         {resumeList.length>0&&resumeList.map((resume,index)=>(
-          <DisplayResumeCart resume={resume} key={index}/>
+          <DisplayResumeCart resume={resume} key={index} refreshData={GetResumeList}/>
         ))}
       </div>
     </div>

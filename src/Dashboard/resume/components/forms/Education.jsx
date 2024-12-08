@@ -23,6 +23,9 @@ function Education() {
       description:''
     }
   ])
+  useEffect(()=>{
+    resumeInfo&&setEducationList(resumeInfo?.education)
+  },[])
 
   const handleChange=(event,index)=>{
     const newEntries=educationList.slice();
@@ -51,8 +54,7 @@ function Education() {
     setLoading(true)
     const data ={
       data:{
-        education:educationList
-        // .map(({ id, ...rest }) => rest)
+        education:educationList.map(({ id, ...rest }) => rest)
       }
     }
     UpdateResumeDetail(params.resumeId,data)
