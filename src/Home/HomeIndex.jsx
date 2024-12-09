@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "@/components/custom/Header";
-import { UserButton } from "@clerk/clerk-react";
+
 import { AtomIcon, Edit, Share2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // Reusable FeatureCard Component
 const FeatureCard = ({ icon: Icon, title, description }) => {
@@ -29,8 +30,8 @@ function Home() {
             builder.
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <a
-              href="https://resumebuilder.buildbyraj.com/dashboard"
+            <Link to={'/dashboard'}
+            ><div
               className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300"
             >
               Get Started
@@ -46,7 +47,8 @@ function Home() {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
