@@ -1,14 +1,13 @@
-import React, { useContext, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import React, { useContext, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { UpdateResumeDetail } from '@/service/GlobalApi';
-import { Brain, LoaderCircle } from 'lucide-react';
-import { toast } from 'sonner';
-import { ResumeInfoContex } from '@/context/ResumeInfoContext';
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { UpdateResumeDetail } from "@/service/GlobalApi";
+import { Brain, LoaderCircle } from "lucide-react";
+import { toast } from "sonner";
+import { ResumeInfoContex } from "@/context/ResumeInfoContext";
 //import { AIChatSession } from '@/service/AiModel';
-
 
 // const prompt = "Job Title: {jobTitle} , Depends on job title give me list of  summery for 3 experience level, Mid Level and Freasher level in 3 -4 lines in array format, With summery and experience_level Field in JSON Format";
 //const prompt = "Job Title: {jobTitle} ,Depends on job title give me a summary for my resume within 4-5 lines"
@@ -18,15 +17,15 @@ function Summery({ enableNext }) {
   const [summery, setSummery] = useState();
   const [loading, setLoading] = useState(false);
   const params = useParams();
-//   const [aiGeneratedSummeryList, setAiGeneratedSummeryList]=useState();
+  //   const [aiGeneratedSummeryList, setAiGeneratedSummeryList]=useState();
 
   useEffect(() => {
-    
-     summery&&setResumeInfo({
+    summery &&
+      setResumeInfo({
         ...resumeInfo,
-        summery:summery
+        summery: summery,
       });
-  }, [summery])
+  }, [summery]);
 
   // const GenerateSummaryFromAI=async()=>{
   //   setLoading(true);
@@ -44,57 +43,62 @@ function Summery({ enableNext }) {
 
     const data = {
       data: {
-        summery: summery
-      }
+        summery: summery,
+      },
     };
 
-    UpdateResumeDetail(params?.resumeId,data).then(resp => {
-      console.log(resp);
-      enableNext(true);
-      setLoading(false);
-      toast("Details updated");
+    UpdateResumeDetail(params?.resumeId, data).then(
+      (resp) => {
+        console.log(resp);
+        enableNext(true);
+        setLoading(false);
+        toast("Details updated");
+      },
+      (error) => {
+        setLoading(false);
+      }
+    );
+  };
 
-    }, (error) => {
-      setLoading(false);
-    });
+  const GenerateSummaryFromAI = () => {
+    toast.error("Ohh ohh! Free credits are over");
   };
 
   return (
     <div>
-      <div className='p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10'>
-        <h2 className='font-bold text-lg'>Summary </h2>
-        <p>Add Summary for your job title</p>
+      <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
+        <h2 className="font-bold text-lg">Summary </h2>
+        {/* <p>Add Summary for your job title</p> */}
 
-        <form className='mt-7' onSubmit={onSave}>
-          <div className='flex justify-between items-end'>
+        <form className="mt-7" onSubmit={onSave}>
+          <div className="flex justify-between items-end">
             <label>Add Summary</label>
             <Button
-              variant='outline'
-              onClick={()=>GenerateSummaryFromAI()}
-            //   onClick={()=>GeneretiveSummeryFromAI()}
-              type='button'
-              size='sm'
-              className='border-primary text-primary flex gap-2'
+              variant="outline"
+              onClick={GenerateSummaryFromAI}
+              type="button"
+              size="sm"
+              className="border-primary text-primary flex gap-2"
             >
-            <Brain /> Generate from AI</Button>
+              <Brain /> Generate from AI
+            </Button>
           </div>
 
           <Textarea
-            className='mt-5'
+            className="mt-5"
             required
             value={summery}
-             defaultValue={summery?summery:resumeInfo?.summery}
+            defaultValue={summery ? summery : resumeInfo?.summery}
             onChange={(e) => setSummery(e.target.value)}
           />
 
-          <div className='mt-4 flex justify-end'>
+          <div className="mt-4 flex justify-end">
             <Button type="submit" disabled={loading}>
-              {loading ? <LoaderCircle className='animate-spin' /> : 'Save'}
+              {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
             </Button>
           </div>
         </form>
       </div>
-
 
       {/* {aiGeneratedSummeryList&&<div className='my-5'>
         <h2 className='font-bold text-lg'>Suggestion</h2>

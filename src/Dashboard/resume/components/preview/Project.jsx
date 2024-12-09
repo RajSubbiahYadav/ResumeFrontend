@@ -1,6 +1,6 @@
 import React from "react";
 
-function WorkExperiencePreview({ resumeInfo }) {
+function ProjectPreview({ resumeInfo }) {
   return (
     <div className="my-6">
       <h2
@@ -9,7 +9,7 @@ function WorkExperiencePreview({ resumeInfo }) {
           color: resumeInfo?.themeColor,
         }}
       >
-        EXPERIENCE
+        PROJECT
       </h2>
       <hr
         style={{
@@ -17,7 +17,7 @@ function WorkExperiencePreview({ resumeInfo }) {
         }}
       />
 
-      {resumeInfo?.experience?.map((experience, index) => (
+      {resumeInfo?.project?.map((project, index) => (
         <div key={index} className="my-5">
           <h2
             className="text-sm font-bold"
@@ -25,19 +25,11 @@ function WorkExperiencePreview({ resumeInfo }) {
             //   color: resumeInfo?.themeColor,
             // }}
           >
-            {experience?.title}
-          </h2>
-
-          <h2 className="text-xs flex justify-between">
-            {experience?.companyName},{experience?.city},{experience?.state}
-            <span>
-              {experience?.startDate} -{" "}
-              {experience?.currentlyWorking ? "Present" : experience.endDate}{" "}
-            </span>
+            {project.title}
           </h2>
           <div
             className="text-xs my-2"
-            dangerouslySetInnerHTML={{ __html: experience?.workSummery }}
+            dangerouslySetInnerHTML={{ __html: project?.description }}
           />
         </div>
       ))}
@@ -45,4 +37,4 @@ function WorkExperiencePreview({ resumeInfo }) {
   );
 }
 
-export default WorkExperiencePreview;
+export default ProjectPreview;
