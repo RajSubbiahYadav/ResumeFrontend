@@ -33,3 +33,42 @@ To run the frontend project locally, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/RajSubbiahYadav/ResumeFrontend.git
+
+   Navigate to the project directory:
+
+bash
+
+Verify
+
+Open In Editor
+Run
+Copy code
+cd ResumeFrontend
+Install the dependencies:
+
+bash
+
+Verify
+
+Open In Editor
+Run
+Copy code
+npm install
+Start the development server:
+
+bash
+
+Verify
+
+Open In Editor
+Run
+Copy code
+npm run dev
+Open your browser and go to http://localhost:3000 to view the application.
+
+Frontend Usage
+Upon opening the application, you will see a blank resume template.
+Use the sidebar to add sections like Education, Experience, Skills, etc.
+Fill in the details in each section.
+The resume preview will update in real-time.
+Once you are satisfied with your resume, click the "Download" button to save it as a PDF.
