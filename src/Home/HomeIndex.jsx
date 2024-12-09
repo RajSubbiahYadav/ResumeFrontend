@@ -6,7 +6,7 @@ import { AtomIcon, Edit, Share2 } from "lucide-react";
 // Reusable FeatureCard Component
 const FeatureCard = ({ icon: Icon, title, description }) => {
   return (
-    <div className="block rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-purple-500/10 hover:shadow-purple-500/10 flex flex-col items-center">
+    <div className=" rounded-xl border bg-white border-gray-200 p-8 shadow-xl transition hover:border-purple-500/10 hover:shadow-purple-500/10 flex flex-col items-center">
       <Icon className="h-8 w-8 text-purple-600" />
       <h2 className="mt-4 text-xl font-bold text-black text-center">{title}</h2>
       <p className="mt-1 text-sm text-gray-600 text-center">{description}</p>
