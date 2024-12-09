@@ -25,6 +25,10 @@ function ViewResume() {
   const HandleDownload = () => {
     window.print();
   };
+
+  // Construct the URL outside the JSX
+  const shareUrl = `${import.meta.env.VITE_BASE_URL}/my-resume/${resumeId}/view`;
+
   return (
     <ResumeInfoContex.Provider value={{ resumeInfo, setResumeInfo }}>
       <div id="no-print">
@@ -45,8 +49,7 @@ function ViewResume() {
             <RWebShare
               data={{
                 text: "Hello Everyone, This is my Resume please open the URL",
-                url: (import.meta.env.VITE_BASE_URL =
-                  "/my-resume/" + resumeId + "/view"),
+                url: shareUrl,
                 title:
                   resumeInfo?.firstName +
                   " " +

@@ -30,7 +30,7 @@ function Home() {
           </p>
           <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a
-              href="/dashboard"
+              href="https://resumebuilder.buildbyraj.com/dashboard"
               className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white bg-yellow-400 rounded-lg hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300"
             >
               Get Started

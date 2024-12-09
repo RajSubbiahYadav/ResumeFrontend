@@ -28,7 +28,7 @@ function ProjectPreview({ resumeInfo }) {
             {project.title}
           </h2>
           <div
-            className="text-xs my-2"
+            className="text-xs text-justify my-2"
             dangerouslySetInnerHTML={{ __html: project?.description }}
           />
         </div>

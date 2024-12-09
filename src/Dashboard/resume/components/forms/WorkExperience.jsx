@@ -145,7 +145,7 @@ function Experience() {
                 </div>
                 <div>
                   <label className="text-xs ">End Date</label>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
                     <Input
                       type="date"
                       name="endDate"
@@ -184,7 +184,7 @@ function Experience() {
             </div>
           ))}
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <div className="flex gap-2">
             <Button
               variant="outline"
@@ -203,7 +203,7 @@ function Experience() {
               - Remove
             </Button>
           </div>
-          <Button disabled={loading} onClick={() => onSave()}>
+          <Button disabled={loading} onClick={() => onSave()} className="mt-2 md:mt-0">
             {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
           </Button>
         </div>

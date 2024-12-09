@@ -36,7 +36,7 @@ function WorkExperiencePreview({ resumeInfo }) {
             </span>
           </h2>
           <div
-            className="text-xs my-2"
+            className="text-xs text-justify my-2"
             dangerouslySetInnerHTML={{ __html: experience?.workSummery }}
           />
         </div>

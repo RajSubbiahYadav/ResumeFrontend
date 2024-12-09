@@ -117,31 +117,30 @@ function Education() {
                 />
               </div>
               <div>
-                <label>End Date</label>
-                <div className="flex items-center gap-2">
-                  <Input
-                    type="date"
-                    name="endDate"
-                    onChange={(e) => handleChange(e, index)}
-                    value={item?.endDate !== "PRESENT" ? item?.endDate : ""}
-                    disabled={item?.endDate === "PRESENT"}
-                  />
-                  <label className="flex items-center gap-1">
-                    <input
-                      type="checkbox"
-                      checked={item?.endDate === "PRESENT"}
-                      onChange={(e) => {
-                        const newEntries = educationList.slice();
-                        newEntries[index].endDate = e.target.checked
-                          ? "PRESENT"
-                          : "";
-                        setEducationList(newEntries);
-                      }}
-                    />
-                    Present
-                  </label>
-                </div>
-              </div>
+  <label className="text-xs">End Date</label>
+  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+    <Input
+      type="date"
+      name="endDate"
+      onChange={(e) => handleChange(e, index)}
+      value={item?.endDate !== "PRESENT" ? item?.endDate : ""}
+      disabled={item?.endDate === "PRESENT"}
+    />
+    <label className="flex items-center gap-1">
+      <input
+        type="checkbox"
+        checked={item?.endDate === "PRESENT"}
+        onChange={(e) => {
+          const newEntries = educationList.slice();
+          newEntries[index].endDate = e.target.checked ? "PRESENT" : "";
+          setEducationList(newEntries);
+        }}
+      />
+      Present
+    </label>
+  </div>
+</div>
+
               <div className="col-span-2">
                 <label>Description</label>
                 <Textarea
@@ -154,7 +153,7 @@ function Education() {
           </div>
         ))}
       </div>
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row justify-between">
         <div className="flex gap-2">
           <Button
             variant="outline"
@@ -173,7 +172,7 @@ function Education() {
             - Remove
           </Button>
         </div>
-        <Button disabled={loading} onClick={() => onSave()}>
+        <Button disabled={loading} onClick={() => onSave()} flex-col md:flex-row>
           {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
         </Button>
       </div>

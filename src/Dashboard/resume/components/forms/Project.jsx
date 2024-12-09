@@ -83,8 +83,8 @@ function Project() {
   return (
     <div>
       <div className="p-5 shadow-lg rounded-lg border-t-primary border-t-4 mt-10">
-        <h2 className="font-bold text-lg">Professional Experience</h2>
-        <p>Add Your previous Job Experience</p>
+        <h2 className="font-bold text-lg">Project </h2>
+        <p>Add Your Project You Worked On</p>
         <div>
           {projectList.map((item, index) => (
             <div key={index}>
@@ -112,7 +112,7 @@ function Project() {
             </div>
           ))}
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <div className="flex gap-2">
             <Button
               variant="outline"
@@ -131,7 +131,7 @@ function Project() {
               - Remove
             </Button>
           </div>
-          <Button disabled={loading} onClick={() => onSave()}>
+          <Button disabled={loading} onClick={() => onSave()} className="mt-2 md:mt-0">
             {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
           </Button>
         </div>

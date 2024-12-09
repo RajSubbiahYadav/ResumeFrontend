@@ -97,7 +97,7 @@ function Skills() {
           </div>
         ))}
       </div>
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row justify-between">
         <div className="flex gap-2">
           <Button
             variant="outline"
@@ -116,7 +116,7 @@ function Skills() {
             - Remove
           </Button>
         </div>
-        <Button disabled={loading} onClick={() => onSave()}>
+        <Button disabled={loading} onClick={() => onSave()} className="mt-2 md:mt-0">
           {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
         </Button>
       </div>
